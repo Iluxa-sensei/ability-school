@@ -22,6 +22,7 @@ import {
   Users,
   ClipboardList,
   Sparkles,
+  User,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -32,10 +33,12 @@ const studentItems = [
   { title: "ИИ‑чат", url: "/dashboard/student/ai-chat", icon: Bot },
   { title: "Достижения", url: "/dashboard/student/achievements", icon: Trophy },
   { title: "AI‑психолог", url: "/dashboard/student/ai-psychologist", icon: Brain },
+  { title: "Профиль", url: "/dashboard/student/profile", icon: User },
 ];
 
 const parentItems = [
   { title: "Обзор", url: "/dashboard/parent/overview", icon: Home },
+  { title: "Профиль", url: "/dashboard/parent/profile", icon: User },
 ];
 
 const teacherItems = [
@@ -43,6 +46,7 @@ const teacherItems = [
   { title: "Задания", url: "/dashboard/teacher/assignments", icon: ClipboardList },
   { title: "ИИ‑планировщик", url: "/dashboard/teacher/ai-planner", icon: Sparkles },
   { title: "Урок", url: "/dashboard/teacher/classroom", icon: Presentation },
+  { title: "Профиль", url: "/dashboard/teacher/profile", icon: User },
 ];
 
 

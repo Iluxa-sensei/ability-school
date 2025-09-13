@@ -1,9 +1,6 @@
 import { Link, NavLink, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuSeparator, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
 import { useEffect, useMemo, useState } from "react";
-import { User, Settings, LogOut, BookOpen, Users, GraduationCap } from "lucide-react";
 
 const navItems = [
   { href: "#about", label: "О проекте" },
@@ -17,32 +14,6 @@ const Navbar = ({ showFullNav = true }: { showFullNav?: boolean }) => {
   const [mobileOpen, setMobileOpen] = useState(false);
   const sectionIds = useMemo(() => navItems.map(n => n.href.replace('#', '')).filter(Boolean), []);
   const [activeId, setActiveId] = useState<string | null>(null);
-  
-  // Определяем тип пользователя и его данные
-  const getUserType = () => {
-    if (pathname.includes('/student')) return 'student';
-    if (pathname.includes('/parent')) return 'parent';
-    if (pathname.includes('/teacher')) return 'teacher';
-    return null;
-  };
-
-  const userType = getUserType();
-  const isLoggedIn = userType !== null;
-
-  const getUserData = () => {
-    switch (userType) {
-      case 'student':
-        return { name: 'Айдар Нурланов', role: 'Ученик', avatar: '/api/placeholder/40/40', profilePath: '/dashboard/student/profile' };
-      case 'parent':
-        return { name: 'Айгүл Нурланова', role: 'Родитель', avatar: '/api/placeholder/40/40', profilePath: '/dashboard/parent/profile' };
-      case 'teacher':
-        return { name: 'Айгүл Нурланова', role: 'Учитель', avatar: '/api/placeholder/40/40', profilePath: '/dashboard/teacher/profile' };
-      default:
-        return null;
-    }
-  };
-
-  const userData = getUserData();
 
   // Smooth scroll handler for in-page anchors
   useEffect(() => {
@@ -87,67 +58,19 @@ const Navbar = ({ showFullNav = true }: { showFullNav?: boolean }) => {
   return (
     <header className="sticky top-0 z-50 bg-white/70 backdrop-blur supports-[backdrop-filter]:bg-white/60 border-b">
       <div className="container flex h-16 items-center justify-between">
-        <div className="flex items-center gap-4">
-          {/* Profile Button - только для авторизованных пользователей */}
-          {isLoggedIn && userData && (
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button variant="ghost" className="relative h-10 w-10 rounded-full">
-                  <Avatar className="h-10 w-10">
-                    <AvatarImage src={userData.avatar} alt={userData.name} />
-                    <AvatarFallback className="bg-gradient-to-r from-blue-500 to-purple-500 text-white">
-                      {userData.name.split(' ').map(n => n[0]).join('')}
-                    </AvatarFallback>
-                  </Avatar>
-                </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent className="w-56" align="end" forceMount>
-                <div className="flex items-center justify-start gap-2 p-2">
-                  <div className="flex flex-col space-y-1 leading-none">
-                    <p className="font-medium">{userData.name}</p>
-                    <p className="w-[200px] truncate text-sm text-muted-foreground">
-                      {userData.role}
-                    </p>
-                  </div>
-                </div>
-                <DropdownMenuSeparator />
-                <DropdownMenuItem asChild>
-                  <Link to={userData.profilePath} className="flex items-center">
-                    <User className="mr-2 h-4 w-4" />
-                    <span>Профиль</span>
-                  </Link>
-                </DropdownMenuItem>
-                <DropdownMenuItem asChild>
-                  <Link to="/dashboard/student/profile" className="flex items-center">
-                    <Settings className="mr-2 h-4 w-4" />
-                    <span>Настройки</span>
-                  </Link>
-                </DropdownMenuItem>
-                <DropdownMenuSeparator />
-                <DropdownMenuItem asChild>
-                  <Link to="/" className="flex items-center text-red-600">
-                    <LogOut className="mr-2 h-4 w-4" />
-                    <span>Выйти</span>
-                  </Link>
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
-          )}
-          
-          <Link
-            to="/"
-            onClick={(e) => {
-              if (pathname === '/') {
-                e.preventDefault();
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-                setMobileOpen(false);
-              }
-            }}
-            className="font-display text-xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent hover:opacity-90 transition-opacity"
-          >
-            Ability School
-          </Link>
-        </div>
+        <Link
+          to="/"
+          onClick={(e) => {
+            if (pathname === '/') {
+              e.preventDefault();
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+              setMobileOpen(false);
+            }
+          }}
+          className="font-display text-xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent hover:opacity-90 transition-opacity"
+        >
+          Ability School
+        </Link>
         {showFullNav && (
           <>
             <nav className="hidden md:flex items-center gap-6 text-sm">
