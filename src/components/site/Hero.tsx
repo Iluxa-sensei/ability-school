@@ -29,8 +29,8 @@ const Hero = () => {
                 <Sparkles className="w-3.5 h-3.5" /> Учимся с ИИ
               </div>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold font-display leading-tight">
-                <span className="bg-gradient-to-r from-blue-700 to-purple-700 bg-clip-text text-transparent">Ability School</span>
-                <span className="block text-gray-900 mt-1">Виртуальная школа для Казахстана</span>
+                <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent animate-gradient-x">Ability School</span>
+                <span className="block text-gray-900 mt-1">Ваша виртуальная школа будущего</span>
               </h1>
               <p className="mt-5 text-base md:text-lg text-gray-700 leading-relaxed max-w-3xl mx-auto">
                 Инклюзивная образовательная платформа для людей с ограниченными возможностями. ИИ-ассистент, голосовая навигация и функции доступности для комфортного обучения.
