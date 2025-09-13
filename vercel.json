@@ -41,7 +41,7 @@
     ],
     "rewrites": [
         {
-            "source": "/((?!assets|favicon\\.ico|robots\\.txt|models).*)",
+            "source": "/(.*)",
             "destination": "/index.html"
         }
     ]
