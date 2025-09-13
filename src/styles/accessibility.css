@@ -1,0 +1,329 @@
+/* Accessibility Styles */
+
+/* High Contrast Theme */
+.high-contrast {
+  --background: #000000;
+  --foreground: #ffffff;
+  --primary: #ffff00;
+  --primary-foreground: #000000;
+  --secondary: #ffffff;
+  --secondary-foreground: #000000;
+  --muted: #333333;
+  --muted-foreground: #ffffff;
+  --accent: #ffff00;
+  --accent-foreground: #000000;
+  --destructive: #ff0000;
+  --destructive-foreground: #ffffff;
+  --border: #ffffff;
+  --input: #ffffff;
+  --ring: #ffff00;
+}
+
+.high-contrast * {
+  border-color: #ffffff !important;
+  color: #ffffff !important;
+  background-color: #000000 !important;
+}
+
+.high-contrast button {
+  background-color: #ffff00 !important;
+  color: #000000 !important;
+  border: 2px solid #ffffff !important;
+}
+
+.high-contrast input, .high-contrast textarea, .high-contrast select {
+  background-color: #000000 !important;
+  color: #ffffff !important;
+  border: 2px solid #ffffff !important;
+}
+
+/* Dark Contrast Theme */
+.dark-contrast {
+  --background: #1a1a1a;
+  --foreground: #ffffff;
+  --primary: #3b82f6;
+  --primary-foreground: #ffffff;
+  --secondary: #374151;
+  --secondary-foreground: #ffffff;
+  --muted: #374151;
+  --muted-foreground: #d1d5db;
+  --accent: #3b82f6;
+  --accent-foreground: #ffffff;
+  --destructive: #ef4444;
+  --destructive-foreground: #ffffff;
+  --border: #374151;
+  --input: #374151;
+  --ring: #3b82f6;
+}
+
+/* Keyboard Navigation */
+.keyboard-navigation *:focus {
+  outline: 3px solid #3b82f6 !important;
+  outline-offset: 2px !important;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.5) !important;
+}
+
+.keyboard-navigation button:focus,
+.keyboard-navigation a:focus,
+.keyboard-navigation input:focus,
+.keyboard-navigation select:focus,
+.keyboard-navigation textarea:focus {
+  outline: 3px solid #3b82f6 !important;
+  outline-offset: 2px !important;
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Screen Reader Only */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Focus Indicators */
+.focus-visible {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+/* Large Text */
+.large-text {
+  font-size: 1.25rem;
+  line-height: 1.6;
+}
+
+.extra-large-text {
+  font-size: 1.5rem;
+  line-height: 1.6;
+}
+
+/* High Contrast Links */
+.high-contrast a {
+  text-decoration: underline !important;
+  color: #ffff00 !important;
+}
+
+.high-contrast a:visited {
+  color: #ffa500 !important;
+}
+
+.high-contrast a:hover {
+  background-color: #ffff00 !important;
+  color: #000000 !important;
+}
+
+/* Button Enhancements */
+button {
+  min-height: 44px;
+  min-width: 44px;
+}
+
+/* Fix hover text color issues */
+button:hover {
+  color: inherit !important;
+}
+
+button:hover span,
+button:hover div,
+button:hover p {
+  color: inherit !important;
+}
+
+/* Card hover fixes */
+.card:hover,
+[class*="card"]:hover {
+  color: inherit !important;
+}
+
+.card:hover *,
+[class*="card"]:hover * {
+  color: inherit !important;
+}
+
+/* Navigation panel fixes */
+.fixed .card:hover {
+  background-color: inherit !important;
+  color: inherit !important;
+}
+
+.fixed .card:hover * {
+  color: inherit !important;
+}
+
+/* Accessibility panel specific fixes */
+.accessibility-panel button:hover {
+  background-color: var(--primary) !important;
+  color: var(--primary-foreground) !important;
+}
+
+.accessibility-panel button:hover * {
+  color: var(--primary-foreground) !important;
+}
+
+/* Switch colors for accessibility panel */
+[data-state="checked"] {
+  background-color: #22c55e !important;
+  border-color: #22c55e !important;
+}
+
+[data-state="checked"] span {
+  background-color: white !important;
+}
+
+/* Make switches green when active */
+.switch[data-state="checked"] {
+  background-color: #22c55e !important;
+}
+
+.switch[data-state="checked"] .switch-thumb {
+  background-color: white !important;
+  transform: translateX(20px) !important;
+}
+
+/* Form Enhancements */
+input, textarea, select {
+  min-height: 44px;
+  font-size: 16px; /* Prevents zoom on iOS */
+}
+
+/* Skip Links */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 6px;
+  background: #000;
+  color: #fff;
+  padding: 8px;
+  text-decoration: none;
+  z-index: 1000;
+}
+
+.skip-link:focus {
+  top: 6px;
+}
+
+/* Error States */
+.error {
+  border: 2px solid #ef4444 !important;
+  background-color: #fef2f2 !important;
+}
+
+.error-message {
+  color: #ef4444;
+  font-weight: bold;
+  margin-top: 4px;
+}
+
+/* Success States */
+.success {
+  border: 2px solid #10b981 !important;
+  background-color: #f0fdf4 !important;
+}
+
+.success-message {
+  color: #10b981;
+  font-weight: bold;
+  margin-top: 4px;
+}
+
+/* Loading States */
+.loading {
+  position: relative;
+  pointer-events: none;
+}
+
+.loading::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  margin: -10px 0 0 -10px;
+  border: 2px solid #f3f3f3;
+  border-top: 2px solid #3b82f6;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Voice Navigation Indicators */
+.voice-active {
+  outline: 3px solid #10b981 !important;
+  outline-offset: 2px !important;
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+/* Eye Tracking Indicators */
+.eye-tracked {
+  outline: 2px solid #3b82f6 !important;
+  outline-offset: 1px !important;
+}
+
+.eye-selected {
+  outline: 3px solid #ef4444 !important;
+  outline-offset: 2px !important;
+  animation: pulse 0.5s infinite;
+}
+
+/* Responsive Design for Accessibility */
+@media (max-width: 768px) {
+  button, input, select, textarea {
+    min-height: 48px;
+    font-size: 18px;
+  }
+  
+  .large-text {
+    font-size: 1.5rem;
+  }
+  
+  .extra-large-text {
+    font-size: 1.75rem;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  
+  * {
+    background: white !important;
+    color: black !important;
+  }
+  
+  a {
+    text-decoration: underline;
+  }
+  
+  a[href]:after {
+    content: " (" attr(href) ")";
+  }
+}
